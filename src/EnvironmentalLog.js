@@ -43,8 +43,7 @@ export default function EnvironmentalLog() {
   };
 
   const deleteLog = (index) => {
-    const updated = logs.filter((_, i) => i !== index);
-    setLogs(updated);
+    setLogs(logs.filter((_, i) => i !== index));
   };
 
   return (
