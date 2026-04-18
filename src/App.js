@@ -63,38 +63,16 @@ export default function App() {
       plants.map((p) =>
         p.id === id ? { ...p, mother, father } : p
       )
-    );
-  };
+import React from "react";
+import EnvironmentalLog from "./EnvironmentalLog";
 
+function App() {
   return (
-    <div style={{ padding: 20 }}>
+    <div>
       <h1>Cultivar Tracker</h1>
-
-      <input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Plant name"
-      />
-      <button onClick={addPlant}>Add</button>
-
-      {plants.map((p) => (
-        <div key={p.id} style={{ border: "1px solid #ccc", margin: 10, padding: 10 }}>
-          <h2>{p.name}</h2>
-
-          <p>Mother: {p.mother || "—"}</p>
-          <p>Father: {p.father || "—"}</p>
-
-          <button onClick={() => setParents(p.id)}>Set Parents</button>
-          <button onClick={() => addLog(p.id)}>Add Daily Log</button>
-
-          <h4>Logs:</h4>
-          {p.logs.map((log, i) => (
-            <div key={i}>
-              {log.date} | PPFD: {log.ppfd} | pH: {log.ph} | EC: {log.ec} | {log.note}
-            </div>
-          ))}
-        </div>
-      ))}
+      <EnvironmentalLog />
     </div>
   );
 }
+
+export default App;
